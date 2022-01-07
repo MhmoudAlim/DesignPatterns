@@ -1,15 +1,21 @@
 package com.mahmoudalim.momento;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class History {
-    public List<EditorState> getStates() {
-        return states;
+
+    private List<EditorState> states = new ArrayList<>();
+
+    public void push(EditorState state) {
+        states.add(state);
     }
 
-    public void setStates(List<EditorState> states) {
-        this.states = states;
+    public EditorState pop() {
+        var lastState = states.get(states.size() - 1);
+        states.remove(lastState);
+
+        return lastState;
     }
 
-    private List<EditorState> states ;
 }

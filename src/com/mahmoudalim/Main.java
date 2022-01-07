@@ -1,18 +1,23 @@
 package com.mahmoudalim;
 
 import com.mahmoudalim.momento.Editor;
+import com.mahmoudalim.momento.History;
 
 public class Main {
 
     public static void main(String[] args) {
         var editor = new Editor();
-        editor.setContent("a");
-        System.out.println(editor.getContent());
-        editor.setContent("b");
-        System.out.println(editor.getContent());
-        editor.setContent("cd");
-        System.out.println(editor.getContent());
-        editor.undo();
+        var history = new History();
+
+        editor.setContent("Mahmoud");
+        history.push(editor.createState());
+
+        editor.setContent("Hussein");
+        history.push(editor.createState());
+
+        editor.setContent("Alim");
+        editor.restore(history.pop());
+
         System.out.println(editor.getContent());
 
 
