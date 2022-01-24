@@ -1,4 +1,4 @@
-package com.mahmoudalim;
+package com.mahmoudalim.momento;
 
 import com.mahmoudalim.momento.Editor;
 import com.mahmoudalim.momento.History;
